@@ -18,6 +18,10 @@ namespace GUI
     {
         BUS_NhanVien busNV = new BUS_NhanVien();
 
+        public string vaitro { set; get; }
+
+
+
         public QLBH_DanhNhapFRM()
         {
             InitializeComponent();
@@ -80,7 +84,11 @@ namespace GUI
             dtoNV.MatKhau = busNV.encryption(txtPassword.Text);
             if (busNV.NhanVienDangNhap(dtoNV))
             {
+                QLBH_MainFRM.mail = dtoNV.Email;
+                DataTable dt = busNV.VaiTroNhanVien(dtoNV.Email);
+                vaitro = dt.Rows[0][0].ToString();
                 MessageBox.Show("Đăng nhập thành công");
+                QLBH_MainFRM.session = 1;
                 this.Close();
             }
             else
@@ -118,5 +126,11 @@ namespace GUI
                 txtEmail.Focus();
             }
         }
+
+        private void QLBH_DanhNhapFRM_Load(object sender, EventArgs e)
+        {
+            QLBH_MainFRM.session = 0;
+        }
+      
     }
 }

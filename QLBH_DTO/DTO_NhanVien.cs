@@ -12,8 +12,8 @@ namespace QLBH_DTO
         private string matkhau;
         private string tennv;
         private string diachi;
-        private string vaitro;
-        private string tinhtrang;
+        private int vaitro;
+        private int tinhtrang;
 
         public string Email
         {
@@ -38,19 +38,19 @@ namespace QLBH_DTO
             get { return diachi; }
             set { diachi = value; }
         }
-        public string VaiTro
+        public int VaiTro
         {
             get { return vaitro; }
             set { vaitro = value; }
         }
 
-        public string TinhTrang
+        public int TinhTrang
         {
             get { return tinhtrang; }
             set { tinhtrang = value; }
         }
 
-        public DTO_NhanVien(string email, string matkhau, string tennv, string diachi, string vaitro, string tinhtrang)
+        public DTO_NhanVien(string email, string matkhau, string tennv, string diachi, int vaitro, int tinhtrang)
         {
             this.email = email;
             this.matkhau = matkhau;
@@ -60,7 +60,7 @@ namespace QLBH_DTO
             this.tinhtrang = tinhtrang;
         }
 
-        public DTO_NhanVien(string email, string tennv, string diachi, string vaitro, string tinhtrang)
+        public DTO_NhanVien(string email, string tennv, string diachi, int vaitro, int tinhtrang)
         {
             this.email = email;
             this.tennv = tennv;

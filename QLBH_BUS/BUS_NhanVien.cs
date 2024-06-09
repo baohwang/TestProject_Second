@@ -2,6 +2,7 @@
 using QLBH_DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -43,6 +44,47 @@ namespace QLBH_BUS
         public bool TaoMatKhauMoi(string email, string password)
         {
             return dalNV.TaoMatKhauMoi(email, password);
+        }
+        public DataTable VaiTroNhanVien(string email)
+        {
+            return dalNV.VaiTroNhanVien(email);
+        }
+
+        public bool UpdateMatKhau(string email, string oldPass, string newPass)
+        {
+            return dalNV.UpdateMatKhau(email, oldPass, newPass);
+        }
+
+        //Xử lí nhân viên
+
+        //Lấy danh sách nhân viên
+        public DataTable getNhanVien()
+        {
+            return dalNV.getNhanVien();
+        }
+
+        //Thêm nhân viên
+        public bool InsertNhanVien(DTO_NhanVien nv)
+        {
+            return dalNV.InsertNhanVien(nv);
+        }
+
+        //Cập nhật nhân viên
+        public bool UpdateNhanVien(DTO_NhanVien nv)
+        {
+            return dalNV.UpdateNhanViend(nv);
+        }
+
+        //Xóa nhân viên
+        public bool DeleteNhanVien(string email)
+        {
+            return dalNV.DeleteNhanVien(email);
+        }
+
+        //Tìm kiếm nhân viên
+        public DataTable SearchNhanVien(string name)
+        {
+            return dalNV.SearcNhanVien(name);
         }
     }
 }
